@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Cek xSDR
+Comment=Cek deteksi xSDR setiap login
+Exec=lxterminal --title="Cek xSDR" -e bash -c 'sleep 3; ~/xsdr/cek_xsdr.sh; echo; read -p "Tekan Enter untuk menutup..."'
+Terminal=false
+X-GNOME-Autostart-enabled=true
