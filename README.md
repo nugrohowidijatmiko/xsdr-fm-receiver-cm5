@@ -77,3 +77,7 @@ Kontrol mouse di waterfall: geser kanal dengan drag, ubah lebar dengan menarik t
 
 - usdr-lib (driver dan library resmi): https://github.com/wavelet-lab/usdr-lib
 - piBrick PocketCM5: https://github.com/amarullz/piBrick
+
+## Lisensi
+
+Kode di repositori ini dirilis dengan lisensi [MIT](LICENSE).
