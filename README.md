@@ -2,7 +2,11 @@
 
 Kode pendamping tutorial **"Implementasi Software Defined Radio xSDR pada Raspberry Pi Compute Module 5 melalui Antarmuka PCIe M.2"**. Dengan kode ini, xSDR (Wavelet Lab) di slot M.2 carrier board piBrick PocketCM5 bisa dipakai untuk menerima siaran radio FM.
 
-Tutorial lengkap (dengan foto perangkat dan tangkapan layar GUI) ada di postingan blog.
+Tutorial lengkap (dengan foto perangkat) ada di postingan blog.
+
+![Tampilan fm_gui.py: waterfall, spektrum RF dan spektrum MPX](docs/fm-gui.png)
+
+*Tampilan `fm_gui.py` bergaya wsdr.io: waterfall ±500 kHz, spektrum RF, dan spektrum MPX dengan pilot 19 kHz.*
 
 ## Isi repositori
 
@@ -65,7 +69,38 @@ cp scripts/cek-xsdr.desktop ~/.config/autostart/
 | `--audio plughw:2,0` | Perangkat output `aplay` |
 | `--autostart` | Langsung mulai menerima |
 
-Kontrol mouse di waterfall: geser kanal dengan drag, ubah lebar dengan menarik tepinya, klik di luar kanal untuk pindah, scroll untuk geser 5 kHz, klik ganda untuk menjadikan kanal sebagai frekuensi tengah.
+## Tampilan GUI
+
+### Sumber input
+
+Dropdown **Sumber (input SDR)** selalu menampilkan xSDR M.2 (PCIe), xSDR USB, SDR lain yang ditemukan SoapySDR, dan **Simulasi (tanpa SDR)** untuk mencoba GUI tanpa hardware. Jalur yang tidak terdeteksi diberi keterangan "(tidak terdeteksi)"; tombol ⟳ memindai ulang perangkat.
+
+![Dropdown Sumber (input SDR)](docs/fm-gui-sumber-input.jpg)
+
+### Fungsi setiap bagian
+
+![Bagian-bagian GUI penerima FM](docs/fm-gui-fungsi-bagian.jpg)
+
+- **▶ / ■**: mulai atau berhenti menerima
+- **Sumber, Antena (RX A / RX B), Output audio**: pilih SDR, port antena, dan perangkat `aplay`
+- **Frek. tengah, Tune Frequency, Bandwidth**: bisa diketik lalu tekan Enter
+- **Gain dan Volume**: slider; gain dibagi otomatis ke LNA/TIA/PGA
+- **Waterfall** (kiri) dan **spektrum RF** (kanan atas): ±500 kHz di sekitar frekuensi tengah, kanal yang didemodulasi disorot
+- **Spektrum MPX** (kanan bawah): hasil demodulasi; pilot 19 kHz, stereo 38 kHz, RDS 57 kHz
+- **FPS, Alpha, dB min/maks**: kecepatan dan perataan tampilan
+- **Status bar**: frekuensi, lebar kanal, sumber, dan kuat sinyal kanal (dBFS)
+
+### Mengatur kanal dengan mouse
+
+Tarik bagian tengah kanal di waterfall untuk menggesernya:
+
+![Menggeser kanal](docs/fm-gui-geser-kanal.jpg)
+
+Tarik tepi kanal untuk melebarkan atau menyempitkannya (30–220 kHz):
+
+![Mengubah lebar kanal](docs/fm-gui-lebar-kanal.jpg)
+
+Selain itu: klik di luar kanal untuk memindahkan kanal ke titik itu, scroll untuk geser 5 kHz, dan klik ganda untuk menjadikan kanal sebagai frekuensi tengah. Tombol panah kiri/kanan di keyboard menggeser frekuensi tengah 0,1 MHz.
 
 ## Catatan
 
