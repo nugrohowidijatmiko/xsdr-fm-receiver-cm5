@@ -1,0 +1,8 @@
+# Tambahkan di bagian [all] paling bawah /boot/firmware/config.txt, lalu reboot.
+
+# Aktifkan PCIe ke slot M.2
+dtparam=pciex1
+# Kernel dengan page 4 KB (CM5 default memakai 16 KB)
+kernel=kernel8.img
+# DMA 32-bit untuk PCIe, sesuai panduan resmi Wavelet untuk Pi 5
+dtoverlay=pcie-32bit-dma-pi5
