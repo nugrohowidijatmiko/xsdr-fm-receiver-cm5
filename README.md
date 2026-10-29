@@ -1,3 +1,5 @@
+[English](README.en.md) | **Bahasa Indonesia**
+
 # xSDR FM Receiver untuk Raspberry Pi CM5
 
 Kode pendamping tutorial **"Implementasi Software Defined Radio xSDR pada Raspberry Pi Compute Module 5 melalui Antarmuka PCIe M.2"**. Dengan kode ini, xSDR (Wavelet Lab) di slot M.2 carrier board piBrick PocketCM5 bisa dipakai untuk menerima siaran radio FM.
